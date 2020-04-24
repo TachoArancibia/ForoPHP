@@ -1,4 +1,4 @@
-<?php include 'db.php' ?>
+<?php session_start();?>
 <?php include '../blogEvaluacion/includes/header.php';?>
 <?php include '../blogEvaluacion/includes/navbar.php';?>
 
@@ -6,9 +6,9 @@
     <div class="row justify-content-center my-3">
         <div class="col-md-5 my-2">
             <h3 class="text-center"> Inicio de Sesión </h3>
-            <form method="POST" action="iniciarSesion.php">
-                <input class="form-control my-1" type="text" name="nombreUsuario" placeholder="Ingrese nombre de usuario." required>
-                <input class="form-control my-1" type="password" name="contrasena" placeholder="Ingrese contraseña." required>
+            <form method="POST" action="iniciarSesion.php" name="iniciarSesion">
+                <input class="form-control my-1" type="text" name="nombreUsuario" placeholder="Nombre de Usuario" required>
+                <input class="form-control my-1" type="password" name="contrasena" placeholder="Contraseña" required>
                 <input class="btn btn-outline-danger btn-block" type="submit" value="Iniciar Sesión" name="iniciar_sesion">
             </form>
             <?php if(isset($_SESSION['user_data_incorrect'])){  ?>

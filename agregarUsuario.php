@@ -1,9 +1,9 @@
 <?php
 include 'db.php';
 
-mysqli_select_db($conn,'usuario');
+mysqli_select_db($conn,'usuarios');
 $nombreU = $_POST['nombreUsuario'];
-$query = "SELECT * FROM usuario WHERE nombre_usuario = '$nombreU'";
+$query = "SELECT * FROM usuarios WHERE usuario = '$nombreU'";
 $result = mysqli_query($conn, $query);
 $find = mysqli_num_rows($result);
 if(!$result){
@@ -17,15 +17,26 @@ if($find == 1){
     $nombreUsuario = $_POST['nombreUsuario'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
+    $contrasena = $_POST['contrasena1'];
     $correo = $_POST['correo'];
-    $contrasena1 = $_POST['contrasena1'];
-    $contrasena2 = $_POST['contrasena2'];
-    
 
-    $insert = "INSERT INTO usuario (nombre_usuario,nombre,apellido,correo,contrasena,contrasena2) VALUES ('$nombreUsuario', '$nombre', '$apellido', '$correo',md5('$contrasena1'), md5('$contrasena2'))";
+    $insert = "INSERT INTO usuarios (nombre,apellido,usuario,contraseña,correo) VALUES ('$nombre','$apellido','$nombreUsuario','$contrasena','$correo')";
+    $autor = "INSERT INTO autor()";
     $resultIns = mysqli_query($conn, $insert);
     if(!$resultIns){
         die("Ha fallado la consulta.");
+    }
+
+    #Crear Autor
+    $buscarUsuario = "SELECT * FROM usuarios WHERE usuario = '$nombreUsuario'";
+    $usuario = mysqli_query($conn, $buscarUsuario);
+    while($datos = mysqli_fetch_array($usuario)){
+        $idusuario = $datos['id'];
+        $queryAutor = "INSERT INTO autores (id_usuario) VALUES ($idusuario)";
+        $resultAutor = mysqli_query($conn, $queryAutor);
+        if(!$resultAutor){
+            echo "Error al intentar agregar a la tabla autores.";
+        }
     }
 
     $_SESSION['message'] = 'Usuario Registrado con éxito.';

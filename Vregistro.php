@@ -11,28 +11,25 @@
                 <form action="agregarUsuario.php" method="POST">
                     <div class="form-row my-2">
                         <div class="col my-1">
-                            <input class="form-control" type="text" name="nombre" placeholder="Ingrese nombre." required>
+                            <input class="form-control" type="text" name="nombre" placeholder="Nombre" required>
                         </div>
                         <div class="col my-1">
-                            <input class="form-control" type="text" name="apellido" placeholder="Ingrese apellido." required>
-                        </div>
-                    </div>
-                    <div class="form-row my-2">
-                        <div class="col my-1">
-                            <input class="form-control" type="text" name="nombreUsuario" placeholder="Ingrese nombre de usuario." required>
+                            <input class="form-control" type="text" name="apellido" placeholder="Apellido" required>
                         </div>
                     </div>
                     <div class="form-row my-2">
                         <div class="col my-1">
-                            <input class="form-control" type="email" name="correo" placeholder="Ingrese correo." required>
+                            <input class="form-control" type="text" name="nombreUsuario" placeholder="Nombre de Usuario" required>
                         </div>
                     </div>
                     <div class="form-row my-2">
                         <div class="col my-1">
-                            <input class="form-control" type="password" name="contrasena1" placeholder="Ingrese contraseña." required>
+                            <input class="form-control" type="email" name="correo" placeholder="Correo" required>
                         </div>
-                        <div class="col my-1">
-                            <input class="form-control" type="password" name="contrasena2" placeholder="Ingrese contraseña." required>
+                    </div>
+                    <div class="form-row my-2">
+                        <div class="col">
+                            <input class="form-control" type="password" name="contrasena1" placeholder="Contraseña" required>
                         </div>
                     </div>
                     <input class="btn btn-outline-danger btn-block" type="submit" value="Registrar" name="agregar_usuario">
