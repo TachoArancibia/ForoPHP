@@ -18,7 +18,11 @@ if($find == 1){
     $_SESSION['usuario_enSesion'] = $nombreUsuario;
     
     header('location: Vusuario.php');
+} else if ($find == 0){
+    $datosErroneos = "Datos de usuario mal ingresados";
+    header('location: VinicioSesion.php');
 }
+
 
 // $loginNameQuery = "SELECT * FROM usuarios WHERE nombre = '$nombreUsuario'";
 // $loginPassQuery = "SELECT * FROM usuarios WHERE contrasena = md5('$contrasena')";
@@ -56,7 +60,5 @@ if($find == 1){
     // }
 //     header('location: index.php');
 // }
-echo $query;
-echo $nombreUsuario." ".$contrasena;
 $_SESSION['error_login'] = "Ha ocurrido un error interno. Verificar Código.";
 ?>

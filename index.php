@@ -12,7 +12,7 @@ include 'includes/navbar.php';
         $posts = mysqli_query($conn,$queryShowPost);
         while($post = mysqli_fetch_array($posts)){ ?>
         <div class="col-md-4">
-            <div class="card bg-light mb-3 my-1">
+            <div class="card bg-white mb-3 my-1">
                 <div class="card-header"> <?php echo $post['nombre']." ".$post['apellido']." [Autor@]" ?> </div>
                 <div class="card-body">
                     <h5 class="card-title"> <?php echo $post['titulo'];  ?></h5>

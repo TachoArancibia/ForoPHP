@@ -1,4 +1,7 @@
 <?php
+include 'includes/header.php';
+include 'includes/navBarUsuario.php';
+
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = 'root';
@@ -6,8 +9,8 @@ $dbname = 'blogevaluacion';
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 $idUsuario = $_GET['id'];
-
-
+?>
+<?php
 if(isset($_POST['crear_post'])){
     $titulo = $_POST['titulo'];
     $post = $_POST['post'];
@@ -25,11 +28,10 @@ if(isset($_POST['crear_post'])){
         if(!$result){
             echo "Ha fallado la consulta.";
         }
-    }
-    $_SESSION['post_created'] = "Se ha creado un nuevo Post.";
     header('Location: Vusuario.php');
-
+    }
 }
+
 ?>
 <?php 
 session_start();
@@ -37,8 +39,6 @@ $varUsuario = $_SESSION['usuario_enSesion'];
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";
 }
-include 'includes/header.php';
-include 'includes/navBarUsuario.php';
 ?>
 
 <div class="container my-3">
@@ -54,7 +54,4 @@ include 'includes/navBarUsuario.php';
 
     </div>
 </div>
-
-
 <?php include 'includes/footer.php'; ?>
-

@@ -34,8 +34,7 @@ if($varUsuario == null || $varUsuario == ''){
             ?>
             <a class="btn btn-outline-danger btn-block" href="VcrearPost.php?id=<?php echo $dato['id'] ?>"> ¡Crear Post! </a>
                 <?php }?>
-            <a class="btn btn-outline-danger btn-block" href="#"> ¡Ir a los Post! </a>
-            <a class="btn btn-outline-danger btn-block" href="VpostsUsuario.php"> ¡Ir a tus Posts! </a>
+            <a class="btn btn-outline-danger btn-block" href="VpostsUsuario.php"> ¡Ir a tus Posts! </a> 
         </div>
     </div>
 </div>

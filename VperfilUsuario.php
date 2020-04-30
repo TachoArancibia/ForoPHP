@@ -1,7 +1,7 @@
 <?php 
 $dbhost = 'localhost';
 $dbuser = 'root';
-$dbpass = 'root';
+$dbpass = '';
 $dbname = 'blogevaluacion';
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
@@ -25,14 +25,19 @@ if($varUsuario == null || $varUsuario == ''){
         ?>
         <div class="col-md-4">
             <h2 class="text-center"> <small>  Datos Personales </small></h3>
+            <label> Nombre </label>
             <input class="form-control my-1" type="text" placeholder="<?php echo $datos['nombre']; ?>" readonly>
+            <label> Apellido </label>
             <input class="form-control my-1" type="text" placeholder="<?php echo $datos['apellido']; ?>" readonly>
+            <label> Nombre de Usuario </label>
             <input class="form-control my-1" type="text" placeholder="<?php echo $datos['usuario']; ?>" readonly>
+            <label> Correo </label>
             <input class="form-control my-1" type="text" placeholder="<?php echo $datos['correo']; ?>" readonly>
-            <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
+            <h2 class="text-center"> <small> Información Posts </small></h2>
+            <!-- <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
                 Editar
-            </button>
-            <!-- Modal -->
+            </button> -->
+            <!-- Modal
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -56,7 +61,7 @@ if($varUsuario == null || $varUsuario == ''){
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         <?php }?>
         </div>  
     </div>

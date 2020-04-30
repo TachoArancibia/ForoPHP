@@ -9,7 +9,7 @@
                 <a class="nav-link" href="Vregistro.php"> Registro </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="VinicioSesion.php"> Login </a>
+                <a class="nav-link" href="VinicioSesion.php"> Iniciar Sesión </a>
             </li>
         </ul>
     </div>

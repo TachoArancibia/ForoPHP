@@ -21,7 +21,6 @@ if($find == 1){
     $correo = $_POST['correo'];
 
     $insert = "INSERT INTO usuarios (nombre,apellido,usuario,contraseña,correo) VALUES ('$nombre','$apellido','$nombreUsuario','$contrasena','$correo')";
-    $autor = "INSERT INTO autor()";
     $resultIns = mysqli_query($conn, $insert);
     if(!$resultIns){
         die("Ha fallado la consulta.");
