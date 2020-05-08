@@ -9,7 +9,7 @@ $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 $nombreUsuario = $_POST['nombreUsuario'];
 $contrasena = $_POST['contrasena'];
 
-$query = "SELECT * FROM usuarios WHERE usuario='$nombreUsuario' AND contraseña='$contrasena'";
+$query = "SELECT * FROM usuarios WHERE usuario='$nombreUsuario' AND contraseña=md5('$contrasena')";
 $resultado = mysqli_query($conn,$query);
 $find = mysqli_num_rows($resultado);
 

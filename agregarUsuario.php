@@ -20,7 +20,7 @@ if($find == 1){
     $contrasena = $_POST['contrasena1'];
     $correo = $_POST['correo'];
 
-    $insert = "INSERT INTO usuarios (nombre,apellido,usuario,contraseña,correo) VALUES ('$nombre','$apellido','$nombreUsuario','$contrasena','$correo')";
+    $insert = "INSERT INTO usuarios (nombre,apellido,usuario,contraseña,correo) VALUES ('$nombre','$apellido','$nombreUsuario',md5('$contrasena'),'$correo')";
     $resultIns = mysqli_query($conn, $insert);
     if(!$resultIns){
         die("Ha fallado la consulta.");
