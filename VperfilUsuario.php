@@ -1,7 +1,7 @@
 <?php 
 $dbhost = 'localhost';
 $dbuser = 'root';
-$dbpass = '';
+$dbpass = 'root';
 $dbname = 'blogevaluacion';
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
@@ -34,35 +34,15 @@ if($varUsuario == null || $varUsuario == ''){
             <label> Correo </label>
             <input class="form-control my-1" type="text" placeholder="<?php echo $datos['correo']; ?>" readonly>
             <h2 class="text-center"> <small> Información Posts </small></h2>
-            <!-- <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal">
-                Editar
-            </button> -->
-            <!-- Modal
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="my-1" action="editarUsuario.php" method="POST">
-                                <input class="form-control my-1" type="text" name="nombre" value="<?php echo $datos['nombre']; ?>">
-                                <input class="form-control my-1" type="text" name="apellido" value="<?php echo $datos['apellido']; ?>">
-                                <input class="form-control my-1" type="text" name="usuario" value="<?php echo $datos['usuario']; ?>">
-                                <input class="form-control my-1" type="text" name="correo" value="<?php echo $datos['correo']; ?>"> 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-dark" data-dismiss="modal">Cerrar</button>
-                                    <input type="submit" value="Guardar Cambios" class="btn btn-outline-danger" name="actualizar_usuario">
-                                </div>                        
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         <?php }?>
+        <?php     
+        $ownPosts = "SELECT COUNT(*) total FROM usuarios u, post p, autores a WHERE a.id_usuario = u.id AND p.id_autor = a.id AND u.usuario = '$varUsuario'";
+        $posts = mysqli_query($conn, $ownPosts);
+        while ($query = mysqli_fetch_array($posts)){
+        ?>
+            <label> Post creados </label>
+            <input class="form-control my-1" type="text" placeholder="<?php echo $query['total']; ?>" readonly>   
+        <?php } ?>
         </div>  
     </div>
 </div>
