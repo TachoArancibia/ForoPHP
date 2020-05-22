@@ -2,9 +2,9 @@
 
 session_start();
 
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
+$dbhost = 'forophp.mysql.database.azure.com';
+$dbuser = 'admindb@forophp';
+$dbpass = '5TKTg3loDFsa';
 $dbname = 'foro';
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
