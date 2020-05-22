@@ -1,16 +1,12 @@
 <?php 
 include 'includes/header.php';
 include 'includes/navbarUsuario.php';
-
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = 'root';
-$dbname = 'blogevaluacion';
+include 'db.php';
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 ?>
 <?php 
-session_start();
+//session_start();
 $varUsuario = $_SESSION['usuario_enSesion'];
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";

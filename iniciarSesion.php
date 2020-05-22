@@ -1,10 +1,5 @@
 <?php
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = 'root';
-$dbname = 'blogevaluacion';
-
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+include 'db.php';
 
 $nombreUsuario = $_POST['nombreUsuario'];
 $contrasena = $_POST['contrasena'];
@@ -12,15 +7,12 @@ $contrasena = $_POST['contrasena'];
 $query = "SELECT * FROM usuarios WHERE usuario='$nombreUsuario' AND contraseña=md5('$contrasena')";
 $resultado = mysqli_query($conn,$query);
 $find = mysqli_num_rows($resultado);
-
 if($find == 1){
     session_start();
     $_SESSION['usuario_enSesion'] = $nombreUsuario;
-    
-    header('location: Vusuario.php');
+    header('Location: Vusuario.php');
 } else if ($find == 0){
-    $datosErroneos = "Datos de usuario mal ingresados";
-    header('location: VinicioSesion.php');
+    header('Location: Vusuario.php');
 }
 
 
