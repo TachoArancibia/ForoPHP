@@ -3,14 +3,13 @@ include 'includes/header.php';
 include 'includes/navbarUsuario.php';
 include 'db.php';
 
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 ?>
 <?php 
 //session_start();
 $varUsuario = $_SESSION['usuario_enSesion'];
-if($varUsuario == null || $varUsuario == ''){
-    echo "No tienes autorización para esta vista.";
-}
+// if($varUsuario == null || $varUsuario == ''){
+//     echo "No tienes autorización para esta vista.";
+// }
 ?>
 
 <div class="container my-3">

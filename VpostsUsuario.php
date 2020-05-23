@@ -7,9 +7,9 @@ include 'db.php';
 <?php 
 //session_start();
 $varUsuario = $_SESSION['usuario_enSesion'];
-if($varUsuario == null || $varUsuario == ''){
-    echo "No tienes autorización para esta vista.";
-}
+// if($varUsuario == null || $varUsuario == ''){
+//     echo "No tienes autorización para esta vista.";
+// }
 ?>
 
 <div class="container my-3">
