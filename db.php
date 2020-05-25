@@ -1,7 +1,4 @@
 <?php
-ini_set('session.save_path', '/home/temp');
-session_start();
-
 
 $dbhost = 'forophp.mysql.database.azure.com';
 $dbuser = 'admindb@forophp';
