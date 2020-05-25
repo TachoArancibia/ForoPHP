@@ -8,7 +8,7 @@ include 'db.php';
 $idPost = $_GET['id'];
 ?>
 <?php 
-//session_start();
+session_start();
 $varUsuario = $_SESSION['usuario_enSesion'];
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";
