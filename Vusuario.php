@@ -2,10 +2,9 @@
 include 'includes/header.php';
 include 'includes/navbarUsuario.php';
 include 'db.php';
-
+ini_set('session.save_path', '/home/temp');
 ?>
 <?php 
-session_start();
 $varUsuario = $_SESSION['usuario_enSesion'];
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";

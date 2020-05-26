@@ -12,7 +12,7 @@ if($find == 1){
     $_SESSION['usuario_enSesion'] = $nombreUsuario;
     header('Location: Vusuario.php');
 } else if ($find == 0){
-    header('Location: Vusuario.php');
+    header('Location: VinicioSesion.php');
 }
 
 
