@@ -1,7 +1,6 @@
 <?php 
-include 'iniciarSesion.php';
-?>
-<?php 
+include 'db.php';
+
 $varUsuario = $_SESSION['usuario_enSesion'];
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";
