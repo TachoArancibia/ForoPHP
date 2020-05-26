@@ -1,7 +1,6 @@
 <?php 
 include 'includes/header.php';
 include 'includes/navbarUsuario.php';
-include 'db.php';
 include 'iniciarSesion.php';
 ?>
 <?php 
