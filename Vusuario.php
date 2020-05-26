@@ -1,10 +1,9 @@
 <?php 
 include 'includes/header.php';
 include 'includes/navbarUsuario.php';
-include 'db.php';
-ini_set('session.save_path', '/home/temp');
 ?>
 <?php 
+include 'db.php';
 $varUsuario = $_SESSION['usuario_enSesion'];
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";
@@ -20,7 +19,8 @@ if($varUsuario == null || $varUsuario == ''){
             <h2 class="text-center">
                 <small> ¿Qué desear hacer? </small>
             </h2>
-            <?php 
+            <?php
+                include 'db.php'; 
                 $query = "SELECT * FROM usuarios WHERE usuario = '$varUsuario'";
                 $usuario = mysqli_query($conn,$query);
                 while($dato = mysqli_fetch_array($usuario)){

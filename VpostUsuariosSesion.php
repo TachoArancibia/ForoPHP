@@ -1,10 +1,11 @@
 <?php 
 include 'includes/header.php';
 include 'includes/navbarUsuario.php';
-include 'db.php';
+
 
 ?>
 <?php 
+include 'db.php';
 session_start();
 $varUsuario = $_SESSION['usuario_enSesion'];
 if($varUsuario == null || $varUsuario == ''){
