@@ -4,7 +4,7 @@ include 'includes/navbarUsuario.php';
 include 'iniciarSesion.php';
 ?>
 <?php 
-$varUsuario = $_SESSION['usuario_enSesion'];
+$varUsuario = $nombreUsuario;
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";
 }
