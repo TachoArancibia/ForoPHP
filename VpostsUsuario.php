@@ -28,6 +28,7 @@ if($varUsuario == null || $varUsuario == ''){
     </div>
 </nav>
 
+
 <div class="container my-3">
     <div class="row justify-content-center my-2">
         <?php 

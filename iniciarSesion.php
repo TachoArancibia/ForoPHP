@@ -16,7 +16,6 @@ if($find == 1){
     
     header('location: Vusuario.php?user='.$userName);
 } else if ($find == 0){
-    $datosErroneos = "Datos de usuario mal ingresados";
-    header('location: VinicioSesion.php');
+    header('Location: VinicioSesion.php');
 }
 ?>

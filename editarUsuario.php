@@ -7,7 +7,7 @@ if(isset($_POST['actualizar_usuario'])){
     $usuario = $_POST['usuario'];
     $correo = $_POST['correo'];
 
-    $queryUpdate = "UPDATE usuarios SET "
+    $queryUpdate = "UPDATE usuarios SET ";
 }
 
 ?>

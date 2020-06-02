@@ -6,7 +6,7 @@ $dbname = 'foro';
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-// if($conn){
+//if($conn){
 //     echo "Conexión con base de datos establecida.";
 // } else {
 //     echo "No se ha podido conectar a la base datos.";

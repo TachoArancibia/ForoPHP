@@ -36,7 +36,7 @@ if($varUsuario == null || $varUsuario == ''){
             <h2 class="text-center">
                 <small> ¿Qué desear hacer? </small>
             </h2>
-            <?php 
+            <?php
                 $query = "SELECT * FROM usuarios WHERE usuario = '$varUsuario'";
                 $usuario = mysqli_query($conn,$query);
                 while($dato = mysqli_fetch_array($usuario)){

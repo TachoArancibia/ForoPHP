@@ -19,7 +19,6 @@ if(isset($_GET['id'])){
     }
 }
 if(isset($_POST['crear_comentario'])){
-    echo "actusaldaidasd";
     $id = $_GET['id'];
     $texto = $_POST['texto'];
     $insert = "INSERT INTO comentarios(texto,id_post) VALUE ('$texto',$id)";
