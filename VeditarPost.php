@@ -2,14 +2,9 @@
 include 'includes/header.php';
 include 'includes/navbarUsuario.php';
 include 'db.php';
+include 'login.php';
 ?>
-<?php 
-session_start();
-$varUsuario = $_SESSION['usuario_enSesion'];
-if($varUsuario == null || $varUsuario == ''){
-    echo "No tienes autorización para esta vista.";
-}
-?>
+
 <?php 
 # Editar Post
 $idPost = $_GET['id'];

@@ -1,17 +1,10 @@
 <?php 
 include 'includes/header.php';
 include 'includes/navBarUsuario.php';
-
-
-?>
-<?php 
 include 'db.php';
-session_start();
-$varUsuario = $_SESSION['usuario_enSesion'];
-if($varUsuario == null || $varUsuario == ''){
-    echo "No tienes autorización para esta vista.";
-}
+include 'login.php';
 ?>
+
 
 <div class="container my-3">
     <div class="row justify-content-center my-2">

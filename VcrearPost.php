@@ -2,8 +2,7 @@
 include 'includes/header.php';
 include 'includes/navBarUsuario.php';
 include 'db.php';
-
-$idUsuario = $_GET['id'];
+include 'login.php';
 ?>
 <?php
 if(isset($_POST['crear_post'])){

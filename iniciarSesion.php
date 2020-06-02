@@ -10,7 +10,7 @@ $find = mysqli_num_rows($resultado);
 if($find == 1){
     session_start();
     $_SESSION['usuario_enSesion'] = $nombreUsuario;
-    header('Location: Vusuario.php');
+    header('Location: Vusuario.php?id='.$nombreUsuario);
 } else if ($find == 0){
     header('Location: VinicioSesion.php');
 }

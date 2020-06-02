@@ -1,10 +1,9 @@
 <?php 
+include 'includes/header.php';
+include 'includes/navBarUsuario.php';
 include 'db.php';
-
-$varUsuario = $_SESSION['usuario_enSesion'];
-if($varUsuario == null || $varUsuario == ''){
-    echo "No tienes autorización para esta vista.";
-}
+include 'login.php';
+$varUsuario = $_GET['id'];
 ?>
 
 <div class="container my-3">

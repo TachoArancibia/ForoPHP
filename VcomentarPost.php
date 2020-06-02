@@ -2,17 +2,7 @@
 include 'includes/header.php';
 include 'includes/navbarUsuario.php';
 include 'db.php';
-?>
-<?php 
-
-$idPost = $_GET['id'];
-?>
-<?php 
-session_start();
-$varUsuario = $_SESSION['usuario_enSesion'];
-if($varUsuario == null || $varUsuario == ''){
-    echo "No tienes autorización para esta vista.";
-}
+include 'login.php';
 ?>
 <?php 
 if(isset($_POST['crear_comentario'])){
