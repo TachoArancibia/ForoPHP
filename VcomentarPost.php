@@ -1,23 +1,32 @@
 <?php
+include 'db.php';
 include 'includes/header.php';
-include 'includes/navbarUsuario.php';
-?>
-<?php 
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = 'root';
-$dbname = 'blogevaluacion';
-
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-$idPost = $_GET['id'];
-?>
-<?php 
 session_start();
 $varUsuario = $_SESSION['usuario_enSesion'];
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";
 }
+$idPost = $_GET['id'];
 ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="#"> PHP CRUD BLOG</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="VpostUsuariosSesion.php?user=<?php echo $varUsuario?>"> Posts </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="VperfilUsuario.php?user=<?php echo $varUsuario?>"> Perfil </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Vusuario.php?user=<?php echo $varUsuario?>"> Menú </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php"> Cerrar Sesión </a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <?php 
 if(isset($_POST['crear_comentario'])){
     $comentario = $_POST['comentario'];
@@ -27,7 +36,7 @@ if(isset($_POST['crear_comentario'])){
         echo "Ha fallado la consulta para agregar comentario";
     }
 
-    header('location: VpostUsuariosSesion.php');
+    header('location: VpostUsuariosSesion.php?user='.$varUsuario);
 
 }
 ?>

@@ -1,20 +1,32 @@
 <?php 
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = 'root';
-$dbname = 'blogevaluacion';
-
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+include 'db.php';
 include 'includes/header.php';
-include 'includes/navBarUsuario.php';
-?>
-<?php 
 session_start();
-$varUsuario = $_SESSION['usuario_enSesion'];
+$userName = $_GET['user'];
+$varUsuario = $userName;
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";
 }
 ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="#"> PHP CRUD BLOG</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="VpostUsuariosSesion.php?user=<?php echo $varUsuario?>"> Posts </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="VperfilUsuario.php?user=<?php echo $varUsuario?>"> Perfil </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Vusuario.php?user=<?php echo $varUsuario?>"> Menú </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php"> Cerrar Sesión </a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 <div class="container my-3">
     <div class="row justify-content-center my-2">

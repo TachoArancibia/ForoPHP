@@ -2,6 +2,7 @@
 <?php
 include 'includes/header.php';
 include 'includes/navbar.php'; 
+include 'db.php';
 ?>
 
 <div class="container">

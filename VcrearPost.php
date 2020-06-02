@@ -1,21 +1,37 @@
 <?php
+include 'db.php';
 include 'includes/header.php';
-include 'includes/navBarUsuario.php';
-
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = 'root';
-$dbname = 'blogevaluacion';
-
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+session_start();
+$varUsuario = $_SESSION['usuario_enSesion'];
+if($varUsuario == null || $varUsuario == ''){
+    header('Location: VinicioSesion.php');
+}
 $idUsuario = $_GET['id'];
 ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="#"> PHP CRUD BLOG</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="VpostUsuariosSesion.php?user=<?php echo $varUsuario?>"> Posts </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="VperfilUsuario.php?user=<?php echo $varUsuario?>"> Perfil </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Vusuario.php?user=<?php echo $varUsuario?>"> Menú </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php"> Cerrar Sesión </a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <?php
 if(isset($_POST['crear_post'])){
     $titulo = $_POST['titulo'];
     $post = $_POST['post'];
     
-
     $queryAutor = "SELECT * FROM autores WHERE id_usuario = $idUsuario";
     $autor = mysqli_query($conn, $queryAutor);
     if(!$autor){
@@ -28,18 +44,12 @@ if(isset($_POST['crear_post'])){
         if(!$result){
             echo "Ha fallado la consulta.";
         }
-    header('Location: Vusuario.php');
+    header('Location: Vusuario.php?user='.$varUsuario);
     }
 }
 
 ?>
-<?php 
-session_start();
-$varUsuario = $_SESSION['usuario_enSesion'];
-if($varUsuario == null || $varUsuario == ''){
-    echo "No tienes autorización para esta vista.";
-}
-?>
+
 
 <div class="container my-3">
     <div class="row justify-content-center my-2">

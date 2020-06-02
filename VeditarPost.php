@@ -1,21 +1,31 @@
 <?php 
+include 'db.php';
 include 'includes/header.php';
-include 'includes/navbarUsuario.php';
-
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = 'root';
-$dbname = 'blogevaluacion';
-
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-?>
-<?php 
 session_start();
 $varUsuario = $_SESSION['usuario_enSesion'];
 if($varUsuario == null || $varUsuario == ''){
     echo "No tienes autorización para esta vista.";
 }
 ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="#"> PHP CRUD BLOG</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="VpostUsuariosSesion.php?user=<?php echo $varUsuario?>"> Posts </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="VperfilUsuario.php?user=<?php echo $varUsuario?>"> Perfil </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Vusuario.php?user=<?php echo $varUsuario?>"> Menú </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php"> Cerrar Sesión </a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <?php 
 # Editar Post
 $idPost = $_GET['id'];
@@ -29,15 +39,15 @@ if(isset($_POST['editar_post'])){
         echo "Ha fallado la consulta";
     }
 
-    header('location: Vusuario.php');
+    header('location: Vusuario.php?user='.$varUsuario);
 }
 ?>
 <div class="container my-3">
     <div class="row justify-content-center my-2">
         <div class="col-md-3">
-            <a class="btn btn-outline-dark btn-block" href="VpostsUsuario.php"> ¡Ir a mis Posts! </a>
-            <a class="btn btn-outline-dark btn-block" href="#"> ¡Ver todos los Posts! </a>
-            <a class="btn btn-outline-dark btn-block" href="Vusuario.php"> ¡Ir al Menú! </a>
+            <a class="btn btn-outline-dark btn-block" href="VpostsUsuario.php?user=<?php echo $varUsuario ?>"> ¡Ir a mis Posts! </a>
+            <a class="btn btn-outline-dark btn-block" href="VpostUsuariosSesion.php?user=<?php echo $varUsuario?>"> ¡Ver todos los Posts! </a>
+            <a class="btn btn-outline-dark btn-block" href="Vusuario.php?user=<?php echo $varUsuario ?>"> ¡Ir al Menú! </a>
         </div>
         <div class="col-md-6">
         <?php 

@@ -1,5 +1,11 @@
 <?php 
 include 'db.php';
+session_start();
+$userName = $_GET['user'];
+$varUsuario = $userName;
+if($varUsuario == null || $varUsuario == ''){
+    echo "No tienes autorización para esta vista.";
+}
 ?>
 <?php
 if(isset($_GET['id'])){
@@ -24,7 +30,7 @@ if(isset($_POST['crear_comentario'])){
     // }
 
     $_SESSION['comment_created'] = "Se ha registrado tu comentario";
-    header('location: Vcomentarios.php');
+    header('location: Vcomentarios.php?');
 }
 ?>
 
